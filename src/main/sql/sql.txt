@@ -1,0 +1,15 @@
+create database bms;
+
+
+use bms;
+
+
+
+CREATE TABLE USER (
+  id int(11) unsigned NOT NULL AUTO_INCREMENT,
+  contact_name varchar(20) DEFAULT NULL,
+  username varchar(20) DEFAULT NULL,
+  email varchar(100) DEFAULT NULL,
+  password varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
