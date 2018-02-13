@@ -1,8 +1,5 @@
 create database bms;
-
-
 use bms;
-
 
 
 CREATE TABLE USER (
@@ -13,3 +10,40 @@ CREATE TABLE USER (
   password varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE CITIES (
+  id int(11) unsigned NOT NULL AUTO_INCREMENT,
+  city_name varchar(40) DEFAULT NULL,
+  state varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE THEATRE (
+  id int(11) unsigned NOT NULL AUTO_INCREMENT,
+  theatre_name varchar(20) DEFAULT NULL,
+  city_id int(11) unsigned NOT NULL,
+  created_date datetime DEFAULT NULL,
+  address_id int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`city_id`) REFERENCES CITIES(`id`),
+  FOREIGN KEY (`address_id`) REFERENCES ADDRESS(`address_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE ADDRESS (
+  address_id int(11) unsigned NOT NULL AUTO_INCREMENT,
+  address1 varchar(255) DEFAULT NULL,
+  address2 varchar(255) DEFAULT NULL,
+  city varchar(55) DEFAULT NULL,
+  state varchar(55) DEFAULT NULL,
+  country varchar(55) DEFAULT NULL,
+  PRIMARY KEY (`address_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+  
+CREATE TABLE MOVIE (
+  id int(11) unsigned NOT NULL AUTO_INCREMENT,
+  title varchar(50) DEFAULT NULL,
+  description text DEFAULT NULL,
+  duration varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+

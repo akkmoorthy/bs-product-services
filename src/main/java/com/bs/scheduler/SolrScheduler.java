@@ -11,7 +11,7 @@ public class SolrScheduler {
 	@Autowired
 	private IndexService indexService;
 
-	@Scheduled(fixedRate = 90000000)
+//	@Scheduled(fixedRate = 90000000)
 	public void scheduleFixedDelayTask() {
 		System.out.println("Fixed delay task - " + System.currentTimeMillis() / 1000);
 		indexService.indexUserData();
